@@ -22,6 +22,7 @@ dist/
 
 #ide files
 wedding_nr.iml
+pubspec.lock
 
 # Package files
 *.jar
