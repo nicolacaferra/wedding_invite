@@ -1,0 +1,40 @@
+name: wedding_nr
+description: N&R Wedding
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  carousel_slider: ^4.1.1
+  flutter_countdown_timer: ^4.1.0
+
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: WaterBrush
+      fonts:
+        - asset: assets/fonts/WaterBrush-Regular.ttf
+    - family: MsMadi
+      fonts:
+        - asset: assets/fonts/MsMadi-Regular.ttf
+    - family: CormorantGaramond-Light
+      fonts:
+        - asset: assets/fonts/CormorantGaramond-Light.ttf
+    - family: CormorantGaramond-Regular
+      fonts:
+        - asset: assets/fonts/CormorantGaramond-Regular.ttf
