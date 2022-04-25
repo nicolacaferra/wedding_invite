@@ -16,6 +16,9 @@ dist/
 # Log files
 *.log
 
+#firebase private files
+.firebaserc
+
 # Package files
 *.jar
 
