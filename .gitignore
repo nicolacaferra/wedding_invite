@@ -18,6 +18,10 @@ dist/
 
 #firebase private files
 .firebaserc
+.firebase
+
+#ide files
+wedding_nr.iml
 
 # Package files
 *.jar
