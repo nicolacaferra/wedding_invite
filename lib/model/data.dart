@@ -31,7 +31,6 @@ class Data {
       'https://i.imgur.com/ayHmZr4.jpg',
       'https://i.imgur.com/Lc4P11E.jpg',
       'https://i.imgur.com/truO2dQ.jpg',
-      'https://i.imgur.com/9wSGj3Q.jpg',
       'https://i.imgur.com/9V0hvQ2.jpg',
       'https://i.imgur.com/VwkFHwX.jpg',
       'https://i.imgur.com/z3iXKz8.jpg',
