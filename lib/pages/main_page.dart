@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wedding_nr/model/data.dart';
 import 'package:wedding_nr/utils/styles.dart';
 import 'package:wedding_nr/widgets/body_widget.dart';
+import 'package:wedding_nr/widgets/contact_widget.dart';
 import 'package:wedding_nr/widgets/footer_buttons_widget.dart';
 import 'package:wedding_nr/widgets/footer_widget.dart';
 import 'package:wedding_nr/widgets/header_widget.dart';
@@ -40,6 +41,7 @@ class MainPage extends StatelessWidget {
                   children: const <Widget>[
                     Expanded(child: FooterWidget()),
                     FooterButtonsWidget(),
+                    ContactWidget(),
                   ],
                 ),
               ),
