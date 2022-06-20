@@ -8,6 +8,7 @@ class Data {
   static const kWeddingHeaderLabel = 'Wedding Day';
   static const kWeddingDateLabel = '3 settembre 2022';
   static const kWeddingNames = 'Nicola & Roberta';
+  static const kHeaderButtons = 'Luoghi dell\'evento';
 
   //all images link
   static List<String> images() {

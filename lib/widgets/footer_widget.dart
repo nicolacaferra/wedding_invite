@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:wedding_nr/model/data.dart';
 import 'package:wedding_nr/utils/autosize_text_widget.dart';
 import 'package:wedding_nr/utils/styles.dart';
+import 'package:wedding_nr/widgets/footer_buttons_widget.dart';
 
 class FooterWidget extends StatefulWidget {
   const FooterWidget({Key? key}) : super(key: key);
@@ -85,7 +86,7 @@ class _FooterWidgetState extends State<FooterWidget> {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
         AutoSizeText(
           text: Data.kWeddingDateLabel,
@@ -99,7 +100,8 @@ class _FooterWidgetState extends State<FooterWidget> {
         AutoSizeText(
           text: getTimeLabel(),
           textStyle: Styles.countdownStyle(),
-        )
+        ),
+        const FooterButtonsWidget(),
       ],
     );
   }

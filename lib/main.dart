@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'N&R Wedding',
       theme: ThemeData(
+        useMaterial3: true,
         primarySwatch: Colors.lightGreen,
       ),
       home: const MainPage(),

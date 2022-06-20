@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wedding_nr/model/data.dart';
 import 'package:wedding_nr/utils/styles.dart';
 import 'package:wedding_nr/widgets/body_widget.dart';
+import 'package:wedding_nr/widgets/footer_buttons_widget.dart';
 import 'package:wedding_nr/widgets/footer_widget.dart';
 import 'package:wedding_nr/widgets/header_widget.dart';
 
@@ -22,16 +23,17 @@ class MainPage extends StatelessWidget {
       backgroundColor: Styles.surfaceColor,
       body: Center(
         child: SizedBox(
+          height: height,
+          width: width,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const <Widget>[
               Expanded(child: HeaderWidget()),
               Expanded(child: BodyWidget()),
               Expanded(child: FooterWidget()),
+              // FooterButtonsWidget(),
             ],
           ),
-          height: height,
-          width: width,
         ),
       ),
     );

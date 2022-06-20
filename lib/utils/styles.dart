@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Styles {
   //colors
   static const Color _textColorDarker = Color(0xff373a22);
-  static const Color _textColor = Color(0xff5c613a);
+  static const Color kTextColor = Color(0xff5c613a);
   // static const Color surfaceColor = Color(0xffdcec79);
   static const Color surfaceColor = Color(0xffe2e7c7);
 
@@ -26,7 +26,7 @@ class Styles {
     return const TextStyle(
       // fontWeight: FontWeight.w500,
       fontFamily: kWaterBrushFont,
-      color: _textColor,
+      color: kTextColor,
       fontSize: 50,
     );
   }
