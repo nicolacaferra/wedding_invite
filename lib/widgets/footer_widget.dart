@@ -6,7 +6,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:wedding_nr/model/data.dart';
 import 'package:wedding_nr/utils/autosize_text_widget.dart';
 import 'package:wedding_nr/utils/styles.dart';
-import 'package:wedding_nr/widgets/footer_buttons_widget.dart';
 
 class FooterWidget extends StatefulWidget {
   const FooterWidget({Key? key}) : super(key: key);
@@ -77,32 +76,36 @@ class _FooterWidgetState extends State<FooterWidget> {
     final prefixLabel = _isWeddingPassed() ? 'Sposati da ' : '';
 
     //all the above labels together (still a lazy solution)!
-    return '$prefixLabel${_duration.inDays} $daysLabel, ${_duration.inHours.remainder(24)} '
-        '$hoursLabel, ${_duration.inMinutes.remainder(60)} $minLabel '
-        'e ${_duration.inSeconds.remainder(60)} $secLabel';
+    return '$prefixLabel${_duration.inDays.abs()} $daysLabel, ${_duration.inHours.abs().remainder(24)} '
+        '$hoursLabel, ${_duration.inMinutes.abs().remainder(60)} $minLabel '
+        'e ${_duration.inSeconds.abs().remainder(60)} $secLabel';
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        AutoSizeText(
-          text: Data.kWeddingDateLabel,
-          textStyle: Styles.labelStyle(),
-        ),
-        AutoSizeText(
-          text: Data.kWeddingNames,
-          textStyle: Styles.labelStyle().copyWith(fontSize: 40),
-        ),
-        const SizedBox(height: 15),
-        AutoSizeText(
-          text: getTimeLabel(),
-          textStyle: Styles.countdownStyle(),
-        ),
-        const FooterButtonsWidget(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 40),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          AutoSizeText(
+            text: Data.kWeddingDateLabel,
+            textStyle: Styles.labelStyle(),
+          ),
+          AutoSizeText(
+            text: Data.kWeddingNames,
+            textStyle: Styles.labelStyle().copyWith(fontSize: 40),
+          ),
+          const SizedBox(height: 15),
+          AutoSizeText(
+            text: getTimeLabel(),
+            textStyle: Styles.countdownStyle(),
+          ),
+          // const FooterButtonsWidget(),
+        ],
+      ),
     );
   }
 }

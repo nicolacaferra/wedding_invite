@@ -21,30 +21,34 @@ class Button extends StatelessWidget {
       constraints: const BoxConstraints(maxWidth: 10),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.all(20),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(14),
           ),
           // Foreground color
-          onPrimary: Theme.of(context).colorScheme.onSecondaryContainer,
+          // onPrimary: Theme.of(context).colorScheme.onSecondaryContainer,
           // Background color
-          primary:
-              Theme.of(context).colorScheme.secondaryContainer.withAlpha(100),
+          primary: Styles.kTextColor.withAlpha(50),
+          // Theme.of(context).colorScheme.secondaryContainer.withAlpha(100),
         ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
         onPressed: onPressed,
         child: Row(
           children: [
+            // const SizedBox(width: 10),
             Icon(
               icon,
               color: Styles.kTextColor,
             ),
+            // const SizedBox(width: 10),
             Expanded(
-              child: Text(
-                label,
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.fade,
-                style: Styles.labelStyle().copyWith(fontSize: 24),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  label,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.fade,
+                  style: Styles.labelStyle().copyWith(fontSize: 24),
+                ),
               ),
             ),
           ],

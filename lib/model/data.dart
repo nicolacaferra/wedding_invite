@@ -5,6 +5,7 @@ class Data {
 
   //data values
   static const kWeddingDateInMillis = 1662193800000; //03/09/2022 in millis
+  // static const kWeddingDateInMillis = 1005210148293; //03/09/2022 in millis
   static const kWeddingHeaderLabel = 'Wedding Day';
   static const kWeddingDateLabel = '3 settembre 2022';
   static const kWeddingNames = 'Nicola & Roberta';

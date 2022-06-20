@@ -7,26 +7,14 @@ class FooterButtonsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-        // Column(
-        //   crossAxisAlignment: CrossAxisAlignment.start,
-        //   // mainAxisAlignment: MainAxisAlignment.center,
-        //   children: [
-        //     // Padding(
-        //     //   padding: const EdgeInsets.only(top: 20),
-        //     //   child: AutoSizeText(
-        //     //     text: Data.kHeaderButtons,
-        //     //     textStyle: Styles.labelStyle().copyWith(fontSize: 24),
-        //     //   ),
-        //     // ),
-        Row(
+    return Row(
       children: [
         Expanded(
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 20, top: 20, bottom: 10, right: 5),
+                const EdgeInsets.only(left: 14, top: 20, bottom: 20, right: 7),
             child: Button(
-              label: 'Indicazioni Chiesa',
+              label: 'Indicazioni\nChiesa',
               icon: Icons.church,
               onPressed: () {
                 launchUrl(Uri.parse('https://goo.gl/maps/h5a1icpqs8VrSkuE8'));
@@ -37,9 +25,9 @@ class FooterButtonsWidget extends StatelessWidget {
         Expanded(
           child: Padding(
             padding:
-                const EdgeInsets.only(right: 20, top: 20, bottom: 10, left: 5),
+                const EdgeInsets.only(right: 14, top: 20, bottom: 20, left: 7),
             child: Button(
-              label: 'Indicazioni Sala',
+              label: 'Indicazioni\nSala',
               icon: Icons.home_filled,
               onPressed: () {
                 launchUrl(Uri.parse('https://goo.gl/maps/nLdSUCCf8zuGRaH6A'));

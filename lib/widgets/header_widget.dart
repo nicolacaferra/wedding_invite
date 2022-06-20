@@ -9,10 +9,13 @@ class HeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: AutoSizeText(
-        text: Data.kWeddingHeaderLabel,
-        textStyle: Styles.labelStyle(),
-        size: 100,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+        child: AutoSizeText(
+          text: Data.kWeddingHeaderLabel,
+          textStyle: Styles.labelStyle(),
+          size: 100,
+        ),
       ),
     );
   }

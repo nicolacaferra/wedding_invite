@@ -25,13 +25,24 @@ class MainPage extends StatelessWidget {
         child: SizedBox(
           height: height,
           width: width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              Expanded(child: HeaderWidget()),
-              Expanded(child: BodyWidget()),
-              Expanded(child: FooterWidget()),
-              // FooterButtonsWidget(),
+          child: CustomScrollView(
+            slivers: <Widget>[
+              SliverToBoxAdapter(
+                  child: Column(children: const [
+                SizedBox(height: 20),
+                HeaderWidget(),
+                BodyWidget(),
+              ])),
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const <Widget>[
+                    Expanded(child: FooterWidget()),
+                    FooterButtonsWidget(),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
