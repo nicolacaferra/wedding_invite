@@ -26,26 +26,32 @@ class MainPage extends StatelessWidget {
         child: SizedBox(
           height: height,
           width: width,
-          child: CustomScrollView(
-            slivers: <Widget>[
-              SliverToBoxAdapter(
-                  child: Column(children: const [
-                SizedBox(height: 10),
-                HeaderWidget(),
-                BodyWidget(),
-              ])),
-              SliverFillRemaining(
-                hasScrollBody: false,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const <Widget>[
-                    Expanded(child: FooterWidget()),
-                    FooterButtonsWidget(),
-                    ContactWidget(),
-                  ],
+          child: ScrollConfiguration(
+            behavior:
+                ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            child: CustomScrollView(
+              slivers: <Widget>[
+                SliverToBoxAdapter(
+                    child: Column(children: const [
+                  SizedBox(height: 10),
+                  HeaderWidget(),
+                  BodyWidget(),
+                ])),
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const <Widget>[
+                      Expanded(child: FooterWidget()),
+                      FooterButtonsWidget(),
+                      ContactWidget(),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wedding_nr/utils/styles.dart';
+import 'package:wedding_nr/utils/utils.dart';
 
 class Button extends StatelessWidget {
   final String label;
@@ -17,43 +18,47 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 10),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
+    final button = ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(14),
+        ),
+        // Foreground color
+        // onPrimary: Theme.of(context).colorScheme.onSecondaryContainer,
+        // Background color
+        primary: Styles.kTextColor.withAlpha(50),
+        // Theme.of(context).colorScheme.secondaryContainer.withAlpha(100),
+      ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+      onPressed: onPressed,
+      child: Row(
+        children: [
+          // const SizedBox(width: 10),
+          Icon(
+            icon,
+            color: Styles.kTextColor,
           ),
-          // Foreground color
-          // onPrimary: Theme.of(context).colorScheme.onSecondaryContainer,
-          // Background color
-          primary: Styles.kTextColor.withAlpha(50),
-          // Theme.of(context).colorScheme.secondaryContainer.withAlpha(100),
-        ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-        onPressed: onPressed,
-        child: Row(
-          children: [
-            // const SizedBox(width: 10),
-            Icon(
-              icon,
-              color: Styles.kTextColor,
-            ),
-            // const SizedBox(width: 10),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  label,
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  overflow: TextOverflow.fade,
-                  style: Styles.labelStyle().copyWith(fontSize: 24),
-                ),
+          // const SizedBox(width: 10),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                label,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                // overflow: TextOverflow.fade,
+                style: Styles.labelStyle().copyWith(fontSize: 24),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
+
+    return Utils.isMobile()
+        ? button
+        : ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 250),
+            child: button,
+          );
   }
 }

@@ -8,9 +8,18 @@ class AutoSizeText extends StatelessWidget {
 
   final double? size;
 
-  const AutoSizeText(
-      {Key? key, required this.text, required this.textStyle, this.size})
-      : super(key: key);
+  final int? maxLines;
+
+  final TextAlign? textAlign;
+
+  const AutoSizeText({
+    Key? key,
+    required this.text,
+    required this.textStyle,
+    this.size,
+    this.maxLines,
+    this.textAlign,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +29,9 @@ class AutoSizeText extends StatelessWidget {
         fit: BoxFit.fitWidth,
         child: Text(
           text,
+          maxLines: maxLines,
           style: size != null ? textStyle.copyWith(fontSize: size) : textStyle,
+          textAlign: textAlign,
         ),
       ),
     );

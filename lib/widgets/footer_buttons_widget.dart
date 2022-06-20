@@ -8,8 +8,9 @@ class FooterButtonsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Expanded(
+        Flexible(
           child: Padding(
             padding:
                 const EdgeInsets.only(left: 14, top: 20, bottom: 20, right: 7),
@@ -22,7 +23,7 @@ class FooterButtonsWidget extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(
+        Flexible(
           child: Padding(
             padding:
                 const EdgeInsets.only(right: 14, top: 20, bottom: 20, left: 7),

@@ -10,18 +10,20 @@ class ContactWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const iconColor = Styles.kTextColor;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20, left: 5, right: 15, top: 40),
+      padding: const EdgeInsets.only(bottom: 20, left: 5, right: 15, top: 20),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(
+          Flexible(
             child: AutoSizeText(
               text: 'Hai domande? Contattaci!',
               textStyle: Styles.countdownStyle().copyWith(fontSize: 24),
             ),
           ),
           // const Spacer(),
+          const SizedBox(width: 20),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 3),
+            padding: const EdgeInsets.symmetric(horizontal: 2),
             child: IconButton(
               onPressed: () {
                 launchUrl(Uri.parse(
@@ -33,7 +35,7 @@ class ContactWidget extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 3),
+            padding: const EdgeInsets.symmetric(horizontal: 2),
             child: IconButton(
               onPressed: () {
                 launchUrl(Uri.parse(
@@ -45,7 +47,7 @@ class ContactWidget extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 3),
+            padding: const EdgeInsets.symmetric(horizontal: 2),
             child: IconButton(
               onPressed: () {
                 launchUrl(Uri.parse(
