@@ -30,7 +30,7 @@ class MainPage extends StatelessWidget {
             slivers: <Widget>[
               SliverToBoxAdapter(
                   child: Column(children: const [
-                SizedBox(height: 20),
+                SizedBox(height: 10),
                 HeaderWidget(),
                 BodyWidget(),
               ])),
