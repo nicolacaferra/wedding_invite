@@ -18,7 +18,7 @@ class AutoSizeText extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: FittedBox(
         fit: BoxFit.fitWidth,
-        child: SelectableText(
+        child: Text(
           text,
           style: size != null ? textStyle.copyWith(fontSize: size) : textStyle,
         ),
