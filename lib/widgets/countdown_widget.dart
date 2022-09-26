@@ -3,18 +3,18 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
-import 'package:wedding_nr/model/data.dart';
+import 'package:wedding_nr/data/constants.dart';
 import 'package:wedding_nr/utils/autosize_text_widget.dart';
 import 'package:wedding_nr/utils/styles.dart';
 
-class FooterWidget extends StatefulWidget {
-  const FooterWidget({Key? key}) : super(key: key);
+class CountdownWidget extends StatefulWidget {
+  const CountdownWidget({Key? key}) : super(key: key);
 
   @override
-  State<FooterWidget> createState() => _FooterWidgetState();
+  State<CountdownWidget> createState() => _CountdownWidgetState();
 }
 
-class _FooterWidgetState extends State<FooterWidget> {
+class _CountdownWidgetState extends State<CountdownWidget> {
   //duration objetc
   late Duration _duration;
 
@@ -28,13 +28,13 @@ class _FooterWidgetState extends State<FooterWidget> {
   }
 
   bool _isWeddingPassed() {
-    const weddingDate = Data.kWeddingDateInMillis;
+    const weddingDate = Constants.kWeddingDateInMillis;
     return weddingDate < DateTime.now().millisecondsSinceEpoch;
   }
 
   void _initData() {
     //this is the wedding date in millis
-    const weddingDate = Data.kWeddingDateInMillis;
+    const weddingDate = Constants.kWeddingDateInMillis;
 
     //if wedding is passed, the date will increase, if wedding is yet to come... it will decrease
     final date = _isWeddingPassed()
@@ -62,18 +62,38 @@ class _FooterWidgetState extends State<FooterWidget> {
     });
   }
 
+  String _getDayLabel(int days) {
+    return days == 1 ? Constants.kDayLabelSingular : Constants.kDayLabelPlural;
+  }
+
+  String _getHoursLabel(int days) {
+    return days == 1
+        ? Constants.kHourLabelSingular
+        : Constants.kHourLabelPlural;
+  }
+
+  String _getMinutesLabel(int days) {
+    return days == 1
+        ? Constants.kMinuteLabelSingular
+        : Constants.kMinuteLabelPlural;
+  }
+
+  String _getSecondsLabel(int days) {
+    return days == 1
+        ? Constants.kSecondLabelSingular
+        : Constants.kSecondLabelPlural;
+  }
+
   //time label with "x days, y hours, z min, w secs"
   String getTimeLabel() {
-    //all these conditions are done to handle plurals (a lazy but quick solution)
-    final daysLabel = _duration.inDays == 1 ? 'giorno' : 'giorni';
-    final hoursLabel = _duration.inHours.remainder(24) == 1 ? 'ora' : 'ore';
-    final minLabel =
-        _duration.inMinutes.remainder(60) == 1 ? 'minuto' : 'minuti';
-    final secLabel =
-        _duration.inSeconds.remainder(60) == 1 ? 'secondo' : 'secondi';
+    //all these conditions are done to handle plurals (a very lazy and horrible, but quick, solution)
+    final daysLabel = _getDayLabel(_duration.inDays);
+    final hoursLabel = _getHoursLabel(_duration.inHours.remainder(24));
+    final minLabel = _getMinutesLabel(_duration.inMinutes.remainder(60));
+    final secLabel = _getSecondsLabel(_duration.inSeconds.remainder(60));
 
     //this prefixLabel will be displayed only if the wedding is passed
-    final prefixLabel = _isWeddingPassed() ? 'Sposati da ' : '';
+    final prefixLabel = _isWeddingPassed() ? Constants.kMarriedFor : '';
 
     //all the above labels together (still a lazy solution)!
     return '$prefixLabel${_duration.inDays.abs()} $daysLabel, ${_duration.inHours.abs().remainder(24)} '
@@ -91,11 +111,11 @@ class _FooterWidgetState extends State<FooterWidget> {
         mainAxisSize: MainAxisSize.min,
         children: [
           AutoSizeText(
-            text: Data.kWeddingDateLabel,
+            text: Constants.kWeddingDateLabel,
             textStyle: Styles.labelStyle(),
           ),
           AutoSizeText(
-            text: Data.kWeddingNames,
+            text: Constants.kWeddingNames,
             textStyle: Styles.labelStyle().copyWith(fontSize: 40),
           ),
           const SizedBox(height: 15),

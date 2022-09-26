@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:wedding_nr/data/constants.dart';
 import 'package:wedding_nr/utils/autosize_text_widget.dart';
 import 'package:wedding_nr/utils/styles.dart';
 
-class ContactWidget extends StatelessWidget {
-  const ContactWidget({Key? key}) : super(key: key);
+class ContactUsWidget extends StatelessWidget {
+  const ContactUsWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class ContactWidget extends StatelessWidget {
         children: [
           Flexible(
             child: AutoSizeText(
-              text: 'Hai domande? Contattaci!',
+              text: Constants.kHaveQuestionsLabel,
               textStyle: Styles.countdownStyle().copyWith(fontSize: 24),
             ),
           ),
@@ -27,7 +28,7 @@ class ContactWidget extends StatelessWidget {
             child: IconButton(
               onPressed: () {
                 launchUrl(Uri.parse(
-                  'https://wa.me/+393336163090',
+                  Constants.kWhatsappLink,
                 ));
               },
               icon: const Icon(Icons.whatsapp),
@@ -39,7 +40,7 @@ class ContactWidget extends StatelessWidget {
             child: IconButton(
               onPressed: () {
                 launchUrl(Uri.parse(
-                  'https://t.me/ncl_cfr',
+                  Constants.kTelegramLink,
                 ));
               },
               icon: const Icon(Icons.telegram_outlined),
@@ -51,7 +52,7 @@ class ContactWidget extends StatelessWidget {
             child: IconButton(
               onPressed: () {
                 launchUrl(Uri.parse(
-                  'mailto:info@3settembre.it',
+                  Constants.kMailLink,
                 ));
               },
               icon: const Icon(Icons.mail),

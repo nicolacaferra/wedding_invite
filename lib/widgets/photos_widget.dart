@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:wedding_nr/model/data.dart';
+import 'package:wedding_nr/data/constants.dart';
 import 'package:wedding_nr/utils/styles.dart';
 
-class BodyWidget extends StatelessWidget {
-  const BodyWidget({Key? key}) : super(key: key);
+class PhotosWidget extends StatelessWidget {
+  const PhotosWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class BodyWidget extends StatelessWidget {
         // autoPlayCurve: Curves.bounceIn,
         autoPlayInterval: const Duration(seconds: 3),
       ),
-      items: Data.images().map((imageLink) {
+      items: Constants.getCarouselImages().map((imageLink) {
         return Builder(
           builder: (BuildContext context) {
             return Card(

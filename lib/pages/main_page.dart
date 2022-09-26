@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:wedding_nr/model/data.dart';
+import 'package:wedding_nr/data/constants.dart';
 import 'package:wedding_nr/utils/styles.dart';
-import 'package:wedding_nr/widgets/body_widget.dart';
-import 'package:wedding_nr/widgets/contact_widget.dart';
-import 'package:wedding_nr/widgets/footer_buttons_widget.dart';
-import 'package:wedding_nr/widgets/footer_widget.dart';
+import 'package:wedding_nr/widgets/photos_widget.dart';
+import 'package:wedding_nr/widgets/contact_us_widget.dart';
+import 'package:wedding_nr/widgets/directions_buttons_widget.dart';
+import 'package:wedding_nr/widgets/countdown_widget.dart';
 import 'package:wedding_nr/widgets/header_widget.dart';
 
 class MainPage extends StatelessWidget {
@@ -16,8 +16,8 @@ class MainPage extends StatelessWidget {
     final deviceSize = MediaQuery.of(context).size;
 
     final height = deviceSize.height;
-    final width = deviceSize.width > Data.kMaxWidth
-        ? Data.kMaxWidth.toDouble()
+    final width = deviceSize.width > Constants.kMaxWidth
+        ? Constants.kMaxWidth.toDouble()
         : deviceSize.width;
 
     return Scaffold(
@@ -35,7 +35,7 @@ class MainPage extends StatelessWidget {
                     child: Column(children: const [
                   SizedBox(height: 10),
                   HeaderWidget(),
-                  BodyWidget(),
+                  PhotosWidget(),
                 ])),
                 SliverFillRemaining(
                   hasScrollBody: false,
@@ -44,9 +44,9 @@ class MainPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: const <Widget>[
-                      Expanded(child: FooterWidget()),
-                      FooterButtonsWidget(),
-                      ContactWidget(),
+                      Expanded(child: CountdownWidget()),
+                      DirectionsButtonsWidget(),
+                      ContactUsWidget(),
                     ],
                   ),
                 ),
